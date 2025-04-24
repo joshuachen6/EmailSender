@@ -1,0 +1,7 @@
+__pycache__
+.venv
+*/.DStore
+config.json
+emails.csv
+email.txt
+log.txt
