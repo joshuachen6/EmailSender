@@ -47,8 +47,8 @@ def main():
         with open(config_path, "w") as config_file:
             json.dump(
                 {
-                    "email": "johndoe@example.com",
-                    "app_password": "password",
+                    "email": "johndoe@gmail.com",
+                    "app_password": "your password",
                     "smtp": "smtp.gmail.com",
                     "port": 465,
                 },
@@ -69,7 +69,7 @@ def main():
         try:
             smtp.login(login["email"], login["app_password"])
         except Exception as e:
-            logger.critical(f"Failed to conenct and log in {e}")
+            logger.critical(f"Failed to connect and log in {e}")
             raise e
 
         # Path to the email
@@ -83,7 +83,6 @@ def main():
         # Read the email
         with open(email_path, "r") as email_file:
             # Load the contents
-            has_subject = False
             email_text = "".join(email_file.readlines())
             if not email_text.startswith("Subject:"):
                 logger.warning('First line does not contain "Subject: " header')
